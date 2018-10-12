@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Trig IDs}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\[
+\sin^2(x) + \cos^2(x) = 1
+\]
+
+\[
+\tan^2(x) + 1 = \sec^2(x)
+\]
+
+
+
+\[
+\sin(2x) = 2\sin(x)\cos(x) 
+\]
+
+\[
+\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x)-1 = 1-2\sin^2(x)
+\]
+
+\[
+\sin(A)\cos(B) = \frac{1}{2}( \sin(A+B) + \sin(A-B)
+\]
+
+\[
+\sin(A)\sin(B) = \frac{1}{2}( \cos(A-B) - \cos(A+B) )
+\]
+
+\[
+\sin^2(x) = \frac{1}{2}(1-\cos (2x)) \hspace{.25in} \cos^2(x) = \frac{1}{2}(1+\cos(2x))
+\]
+
+\hline
+\begin{center}
+    \textit{A special trick for the infamous integral of the secant function, involving a fancy "1"}
+\end{center}
+\[
+\int \sec(x)dx = \int \sec(x) \cdot \frac{\sec(x) + \tan(x)}{\sec(x) + \tan(x)}dx = \int \frac{\sec^2(x) + \sec(x)  \tan(x)}{\tan(x) + sec(x)}dx
+\]
+
+\[
+u = \sec(x) + \tan(x) \hspace{.2in} du = (\sec(x)\tan(x) + \sec^2(x))dx
+\]
+
+\[
+\Rightarrow \int \frac{du}{u} = \ln (|u|) + C = \ln (|\sec(x) + \tan(x)|) +C
+\]
+
+
+\newpage
+\hline
+\begin{center}
+    \textit{The same trick works for the cosecant function, also! Of course, we have to adjust what our fancy "1" is composed of in order to get the correct u-substitution.}
+\end{center}
+
+\[
+\int \csc(x) = \int \csc(x) \cdot \frac{\csc(x)+\cot(x)}{\csc(x) + \cot(x)} dx = \int \frac{\csc^2(x) + \csc(x)\cot(x)}{\cot(x) + \csc(x)} dx
+\]
+
+\[
+u = \cot(x) + \csc(x) \hspace{.2in} du = (-\csc^2(x) - \csc(x)\cot(x))dx
+\]
+
+\[
+\Rightarrow -\int \frac{du}{u} = -\ln(|u|)+C = -\ln(|\cot(x) + \csc(x)|) +C
+\]
+
+\hline
+
+\begin{center}
+    Important theorems for Improper Integrals
+\end{center}
+
+\[
+\int_a^{\infty} \frac{1}{x^P} dx = \lim_{R \to \infty} \int_a^R \frac{1}{x^P}dx = \lim_{R \to \infty} (-\frac{x^{-P+1}}{-P+1})_a^R
+\]
+
+\[
+= \lim_{R \to \infty} \frac{R^{1-P}}{1-P} - \frac{a^{1-P}}{1-P}
+\]
+
+\begin{center}
+   If the exponent on $R$, $1-P$ is positive, then as $R$ approaches infinity the term will explode into infinity as well. If the exponent $1-P1$ is negative, then as $R$ approaches infinity it will be ina denominator, and the term will approach 0. 
+        \begin{tabular}{c|c|c}
+             $1-P > 0$ & $P<1$ & Diverges  \\
+             $1-P < 0$ & $P>1$ & Converges \\
+        \end{tabular} \\
+        Convergence will lead to
+\end{center}
+\[
+\frac{a^{1-P}}{1-P}
+\]
+\\
+\begin{center}
+    Similarly, if the integral has bounds from $0$ to $a$:
+
+\[
+\int_0^a \frac{dx}{x^P} = \lim_{R \to 0^+} \int_R^a \frac{dx}{x^P}
+\]
+
+\[
+= \lim_{R \to 0^+} \frac{a^{1-P}}{1-P} - \frac{R^{1-P}}{1-P}
+\]
+
+Consider the second term. If $R$ has an exponent that is \textit{negative}, it will be placed in the denominator. Then, if the limit is taken as $R$ approaches 0 from the left, the second term will blow up and the integral will diverge. This occurs when $P > 1$
+\\
+However, if the exponent of $R$ is positive, then it will simply approach 0 as the limit is taken, leaving the first term as the answer (convergence). This occurs when $P < 1$
+
+\begin{tabular}{c|c|c}
+     $P-1<0$ & $P>1$ & Diverges  \\
+     $P-1>0$ & $P<1$ Converges \\
+\end{tabular}
+
+Convergence leads to
+
+\[
+\frac{a^{1-P}}{1-P}
+\]
+
+
+
+
+\end{center}
+\hline
+
+\begin{center}
+    \textit{Arc length: length of a segment of line using calculus concepts}
+
+
+\[
+\Delta x^2 + \Delta y^2 = \Delta S^2
+\]
+
+for some small segment $\Delta S$ of a line/function
+
+\[
+\Delta S = \sqrt{\Delta y^2 + \Delta x^2} 
+\]
+
+\[
+\frac{\Delta S}{\Delta x}= \sqrt{1 + \frac{\Delta y^2}{\Delta x^2}}
+\]
+
+\[
+\Delta S = \sqrt{1 + \frac{\Delta y^2}{\Delta x^2}} \cdot \Delta x \Rightarrow S = \int \sqrt{1 + \frac{dy^2}{dx^2}}dx
+\]
+
+\[
+S = \int \sqrt{1 + (f'(x))^2}dx
+\]
+
+Recall how rotational volumes worked. A function was rotated around an axis, and given some small thickness $d\tau$. Then these $dV$ where added up for a total volume. Surface Area works in a very similar way, using arc $dS$ length as the thickness instead. Then the tiny area is rotated around an axis, and all small areas are summed. 
+
+
+\[
+A = 2\pi \int f(x) \sqrt{1+(f'(x))^2} dx
+\]
+
+compared to disc method, 
+\[
+V = \pi \int (f_o(x)^2 - f_i(x)^2) dx
+\]
+or better yet shell method:
+
+\[
+V = 2\pi \int xf(x)dx
+\]
+\end{center}
+
+\hline
+
+\end{document}
